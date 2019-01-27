@@ -1,6 +1,787 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>John-Paul Ore</title>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script>
 
-<h1>jpwco</h1>
+<!--THERE ARE AT LEAST 108 ANTI-PATTERNS IN THIS SOURCE.  CAN YOU FIND THEM ALL?-->
 
+$( document ).ready(function() {
+
+  // INITIAL ROLL OF THE DICE TO SEE WHICH ADVISOR IS LISTED FIRST
+  whoIsFirst = (Math.random() > 0.5);
+
+  function changeAdvisorOrder() {
+
+    advisor_html = '';
+    <!--advisor_html = '<h3> Co-Advisors:<br\> ';-->
+    // LIST OF ADVISORS
+    a = ['<a href="http://cse.unl.edu/~carrick">Carrick Detweiler</a>','<a href="http://cse.unl.edu/~elbaum">Sebastian Elbaum</a>'];
+    // HACKY BUT TERSE WAY TO FLIP ORDER 
+    advisor_html += a[whoIsFirst & 1] + ' and ' + a[ (! whoIsFirst ) & 1];
+    advisor_html += '';
+
+    // WRITE HTML TO OBJECT
+    $("#advisors_inline").hide().html(advisor_html).fadeIn(2000);
+    // FLIP VALUE
+    whoIsFirst = ! whoIsFirst;
+  }
+
+  changeAdvisorOrder();
+
+  var my_loop_timer = setInterval(changeAdvisorOrder, 16180);
+
+  $("div.tex-cite").css("display", "none");
+
+});
+
+function toggle_citation_visibility_(cite_elem) {
+    var x = document.getElementById(cite_elem);
+    if (x.style.display == "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+
+</script>
+
+
+<style>
+body {
+background-color:#080808;
+color:#cdc;
+font-family: georgia;
+
+font-size:14px;
+}
+#main {
+margin: auto;
+width:638px;
+height:100%;
+padding:22px;
+}
+
+#advisors{
+padding-top:20px;
+float:right;
+clear:right;
+font-size:14px;
+}
+
+#advisors_inline{
+}
+
+#headshot{
+float:left; 
+padding-right:10px
+height: 180px;
+width: 111px;
+clear:left;
+}
+
+#selfie{
+float:right; 
+padding-left:20px;
+padding-top:45px;
+width: 220px;
+clear:right;
+}
+
+
+a:link {color:#BEDDEF;}      /* unvisited link   O8F*/
+a:visited {color:#9CBCED;}  /* visited link */
+a:hover {color:#4Af;}  /* mouse over link */
+a:active {color:#FFF}  /* selected link */
+
+.banner {
+margin:auto;
+width:100%;
+}
+img#bg { position:fixed; 
+top:140px; 
+left:0; 
+width:100%; 
+height:100%;
+z-index:-101;
+opacity:.9;
+filter:alpha(opacity=.9);
+}
+
+li{
+  margin: 10px 0;
+}
+
+.bannerTitle{
+font-size:24px; 
+letter-spacing:1px; 
+font-variant: 
+small-caps; 
+color:#DD0;
+float:left;
+padding-bottom:8px;
+}
+
+.sectionTitle{
+padding-top:40px;
+letter-spacing:2px; 
+font-variant: small-caps; 
+color:#fff;
+font-size:18px;
+}
+
+.tex-cite{
+display:none;
+background-color:#333;
+ word-wrap:normal;
+ font-size:9px;
+padding:5px;
+}
+.cite-button{
+display:none;
+ font-size:9px;
+color: #cc3399; 
+text-decoration: underline;
+padding-left:5px;
+}
+
+.name-callout{
+font-weight:bold;
+}
+.title{
+font-size:14px;
+font-style:italic;
+}
+.authors{
+font-size:13px;
+color:#999;
+}
+.venue{
+font-size:17px;
+<!--font-style:italic;-->
+color:#00CCff;
+<!--color:#0039e6;-->
+float:right;
+}
+<!--a.venue:visited, a.venue:link{-->
+<!--color:#00CCFF;-->
+<!--}-->
+.year{
+color:#FFFFCC;
+padding-top:10px;
+letter-spacing: 2px;
+}
+
+.text{
+float:left;
+width: 330px;
+font-size:15px;
+line-height:1.5;
+}
+.text_title{
+font-variant: small-caps; 
+float:left;
+font-size:16px;
+color:#777;
+width:200px;
+padding-bottom:10px;
+}
+
+.highlight-text
+{
+color:yellow;
+font-weight:bold;
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+<img src="img/bg.jpg" id="bg">
+<img class="banner" src="img/NE_skies.jpg"/>
+<div id="main">
+
+<div style="text-align:right; color:yellow; font-size:20px; float:right; "><img src="img/e.png"/>
+<br/>
+<a href="pdf/cv.pdf">CV</a></span>
+<!--<br/>-->
+<!--<a href="./pdf/research_statement.pdf">Research Statement</a></span>-->
+<!--<br/>-->
+<!--<a href="./pdf/teaching_statement.pdf">Teaching Statement</a></span>-->
+</div>
+<span style="color:red; font-size:18px; float:left;">Academic Job Market 2019</i></span>
+<!--<span class="bannerTitle">John-Paul Ore</span>-->
+<!--<img id="headshot" src="img/headshot.png" />-->
+<img id="selfie" src="img/headshot_2018_10_22.jpg" />
+<!--<img id="selfie" src="img/headshot_2018_10_02.jpg" />-->
+<!--<img id="selfie" src="img/headshot_2018_08_01_0851__.png" />-->
+<!--<img id="selfie" src="img/JPO_Headshot_CH.png" />-->
+<!--<img id="selfie" src="img/jpo_at_morrill.jpg" />-->
+<!--<img id="selfie" src="img/john-paul-ore-2018.jpg" />-->
+<!--<img id="headshot" src="img/self_for_google_scholar2.jpg" />-->
+<!--<span style="float:right;">Ph.D Student</span>-->
+<!--<span style="float:right;clear:right">Research Assistant</span>-->
+<!--<span style="float:right;padding-top:4px;clear:right">Computer Science and Engineering </span>-->
+<!--<span style="float:right"><a href="http://nimbus.unl.edu/">NIMBUS LAB</a></span>-->
+
+<!--<div id="advisors"></div>-->
+ 
+
+
+
+<!--<i style="float:left; clear:left;"> <a href="./mypubkey.asc">gpg key</a> </i>-->
+
+
+<br/>
+<br/>
+<div class="text_title" >Background</div>
+<div class="text" >Hi!  I'm <span class="highlight-text">John-Paul Ore</span>, a computer science and engineering Ph.D. candidate at the University of Nebraska (UNL), co-advised by <span id="advisors_inline"><a href="http://cse.unl.edu/~elbaum/content/">Sebastian Elbaum</a> and <a href="http://cse.unl.edu/~carrick/">Carrick Detweiler</a></span>.
+I have a B.A. in Philosophy from the University of Chicago.
+<!--My main interests are <span class="highlight-text">software engineering for robotics</span> and <span class="highlight-text">field robotics</span>.-->
+
+</div>
+
+<div style="clear:left">&nbsp;</div>
+<div class="text_title" >Research Interests</div>
+<div class="text" >
+
+<!--<span class="highlight-text">Software engineering for robotics</span> -->
+My research interests focus on applying program analysis techniques to software that controls robots and senses and acts in the physical world.  
+This includes abstract type inference of physical unit types (like 'meters-per-second') with dataflow analysis,
+Probabilistic techniques for combining semantic information in identifiers (variable names) with code flow inference, 
+and empirical measurements of how developers make decisions about robotic software, and how to connect program analysis with robotic simulation.
+I'm specifically focused on program analysis and software testing that helps make systems safer and more reliable while remaining practical and economically efficient.
+<!--<p>My latest work is about using static analysis to find physical unit inconsistencies in programs that use the <a href="http://www.ros.org/">Robot Operation System (ROS)</a>.-->
+</p>
+ <!--<span class="highlight-text">field robotics</span>-->
+</div>
+
+
+
+<!--<div style="clear:both">&nbsp;</div>-->
+<h4><div style="clear:both;" class="sectionTitle"><span class="highlight-text">2019</span> INVITED TALKS</div></h4>
+<ul>2019 January 24th.  <span class="highlight-text">Notre Dame</span> -- Computer Science &amp; Engineering. <a href="https://cse.nd.edu/seminars/cse-seminar-series-john-paul-ore">"Incorporating Real-World Semantics into Program Analysis of Robot Systems"</a></ul>
+
+
+<h4><div style="clear:both;" class="sectionTitle">PUBLICATIONS</div></h4>
+<!--<h4><span style="clear:both;" class="sectionTitle">Peer Reviewed Conference &amp; Journal Publications</span></h4>-->
+
+<!--<div style="clear:both">&nbsp;</div>-->
+
+<span class="year">2018</span>
+<ul>
+<!--<li>-->
+<!--Redacted, under anonymous review.-->
+<!--<li>-->
+<!--Redacted, under anonymous review.-->
+<li>
+<span class='title'><a href="./pdf/ase18main-p15-p-bcc79e2-37685-final.pdf">Assessing the Type Annotation Burden</a> </span><br/>
+<!--<span class='cite-button'  onclick="toggle_citation_visibility_('2015_airborne')">cite</span><br/>-->
+<span class='authors'><span class='name-callout'>John-Paul Ore</span>, Sebastian Elbaum, Carrick Detweiler, and Lambros Karkazis </span><br/>
+<span class='venue'><a href="http://www.ase2018.com/">ASE 2018  Automated Software Engineering</a></span>
+<li>
+<span class='title'><a href="https://unl.box.com/s/99kx0g4gd6qbjz09x7ltrx33a62mfun2">Phys: Probabilistic Physical Unit Assignment and Inconsistency Detection</a></span><br/>
+<!--<span class='cite-button'  onclick="toggle_citation_visibility_('2015_airborne')">cite</span><br/>-->
+<span class='authors'>Sayali Kate, <span class='name-callout'>John-Paul Ore</span>, Xiangyu Zhang, Sebastian Elbaum and Zhaogui Xu </span><br/>
+<span class='venue'><a href="https://conf.researchr.org/home/fse-2018">FSE 2018 Foundations of Software Engineering</a></span>
+<li>
+<span class='title'><a href="./pdf/2018-ROSE-ICSE.pdf">Towards Code-Aware Robotic Simulation</a></span><br/>
+<!--<span class='cite-button'  onclick="toggle_citation_visibility_('2015_airborne')">cite</span><br/>-->
+<span class='authors'><span class='name-callout'>John-Paul Ore</span>,  Carrick Detweiler, and Sebastian Elbaum </span><br/>
+<span class='venue'><a href="https://sselab.de/lab9/public/wiki/RoSE18/index.php?title=Main_Page">1st International Workshop on Robotics Software Engineering (RoSE)</a></span>
+
+<li>
+<span class='title'><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/rob.21807"> Sensing Water Properties at Precise Depths from the Air (Journal Version)</a></span>
+<!--<span class='cite-button'  onclick="toggle_citation_visibility_('2018_fsr')">cite</span><br/>-->
+<span class='authors'><span class='name-callout'>John-Paul Ore</span> and Carrick Detweiler</span><br/>
+<a class='venue' href="https://www.fsr.ethz.ch">Journal of Field Robotics</a><br/>
+<!--code:<a href="http://nimbus.unl.edu/tools">source code and artifacts</a>-->
+
+<li>
+<span class='title'><a href="https://doi.org/10.1007/978-3-319-67361-5_14"> Sensing Water Properties at Precise Depths from the Air</a></span><span class='cite-button'  onclick="toggle_citation_visibility_('2018_fsr')">cite</span><br/>
+<span class='authors'><span class='name-callout'>John-Paul Ore</span> and Carrick Detweiler</span><br/>
+<a class='venue' href="https://www.fsr.ethz.ch">FSR'17 - Field and Service Robotics</a><br/>
+<!--code:<a href="http://nimbus.unl.edu/tools">source code and artifacts</a>-->
+
+<div class='tex-cite' id='2018_fsr'>
+<code>
+@InProceedings{10.1007/978-3-319-67361-5_14,<br/>
+author="Ore, John-Paul<br/>
+and Detweiler, Carrick",<br/>
+editor="Hutter, Marco<br/>
+and Siegwart, Roland",<br/>
+title="Sensing Water Properties at Precise Depths from the Air",<br/>
+booktitle="Field and Service Robotics",<br/>
+year="2018",<br/>
+publisher="Springer International Publishing",<br/>
+address="Cham",<br/>
+pages="205--220",<br/>
+isbn="978-3-319-67361-5"<br/>
+}
+
+</code>
+</div>
+</ul>
+
+<span class="year">2017</span>
+<ul>
+<li>
+<span class='title'><a href="https://doi.org/10.1109/IROS.2017.8202229">Dimensional Inconsistencies in Code and ROS Messages: a Study of 5.9M Lines of Code</a></span> <span class='cite-button'  onclick="toggle_citation_visibility_('2017_iros')">cite</span><br/>
+<span class='authors'><span class='name-callout'>John-Paul Ore</span>, Carrick Detweiler, and Sebastian Elbaum</span><br/>
+
+<a class='venue' href="http://www.iros2017.org/">IROS'17 - International Conference on Intelligent Robots and Systems</a><br/>
+<!--code:<a href="http://nimbus.unl.edu/tools">source code and artifacts</a>-->
+
+<div class='tex-cite' id='2017_iros'>
+<code>
+@INPROCEEDINGS{8202229, <br/>
+author={J. P. Ore and S. Elbaum and C. Detweiler}, <br/>
+booktitle={2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, <br/>
+title={Dimensional inconsistencies in code and ROS messages: A study of 5.9M lines of code}, <br/>
+year={2017}, <br/>
+volume={}, <br/>
+number={}, <br/>
+pages={712-718}, <br/>
+keywords={control engineering computing;operating systems (computers);robot programming;source code (software);ROS classes;ROS code;ROS messages;ROS programs;ROS software;dimensional analysis;dimensional inconsistencies;inconsistencies detection;inconsistency type;physical quantities;physical unit manipulation;robot operating system;robot software;C++ languages;Geometry;Libraries;Meters;Robots;Software;Tools}, <br/>
+doi={10.1109/IROS.2017.8202229}, <br/>
+ISSN={}, <br/>
+month={Sept}}<br/>
+</code>
+</div>
+
+<li>
+<span class='title'><a href="http://cse.unl.edu/~jore/pdf/PREPRINT_lightweight_detection_of_physical_unit_inconsistencies_without_program_annotations.pdf">Lightweight Detection of Physical Unit Inconsistencies without Program Annotations</a></span> <span class='cite-button'  onclick="toggle_citation_visibility_('2017_issta_lightweight')">cite</span><br/>
+<span class='authors'><span class='name-callout'>John-Paul Ore</span>, Carrick Detweiler, and Sebastian Elbaum</span><br/>
+
+<a class='venue' href="http://conf.researchr.org/home/issta-2017">ISSTA`17 - International Symposium on Software Testing and Analysis</a><br/>
+<!--code:<a href="http://nimbus.unl.edu/tools">source code and artifacts</a>-->
+
+<div class='tex-cite' id='2017_issta_lightweight'>
+<code>
+@inproceedings{Ore:2017:LDP:3092703.3092722,<br/>
+ author = {Ore, John-Paul and Detweiler, Carrick and Elbaum, Sebastian},<br/>
+ title = {Lightweight Detection of Physical Unit Inconsistencies Without Program Annotations},<br/>
+ booktitle = {Proceedings of the 26th ACM SIGSOFT International Symposium on Software Testing and Analysis},<br/>
+ series = {ISSTA 2017},<br/>
+ year = {2017},<br/>
+ isbn = {978-1-4503-5076-1},<br/>
+ location = {Santa Barbara, CA, USA},<br/>
+ pages = {341--351},<br/>
+ numpages = {11},<br/>
+ url = {http://doi.acm.org/10.1145/3092703.3092722},<br/>
+ doi = {10.1145/3092703.3092722},<br/>
+ acmid = {3092722},<br/>
+ publisher = {ACM},<br/>
+ address = {New York, NY, USA},<br/>
+ keywords = {dimensional analysis, physical units, program analysis, robotic systems, static analysis, type checking, unit consistency}} 
+
+</code>
+</div>
+
+<li>
+<span class='title'><a href=" http://cse.unl.edu/~jore/pdf/PREPRINT_phriky_units_a_lightweight_annotation_free_physical_unit_inconsistency_detection_tool.pdf">Phriky-Units: a Lightweight, Annotation-Free Physical Unit Inconsistency Detection Tool</a></span><span class='cite-button'  onclick="toggle_citation_visibility_('2017_phriky')">cite</span><br/>
+<span style="color:yellow; font-size:14px">Best Tool Demonstration Award, ISSTA'17</span><br/>
+<span class='authors'><span class='name-callout'>John-Paul Ore</span>, Carrick Detweiler, and Sebastian Elbaum</span><br/>
+
+<a class='venue' href="http://conf.researchr.org/home/issta-2017">ISSTA`17 - Demonstration Track</a><br/>
+<!--code:<a href="http://nimbus.unl.edu/tools">source code and artifacts</a>-->
+
+<div class='tex-cite' id='2017_phriky'>
+<code>
+
+@inproceedings{Ore:2017:PLA:3092703.3098219,<br/>
+ author = {Ore, John-Paul and Detweiler, Carrick and Elbaum, Sebastian},<br/>
+ title = {Phriky-units: A Lightweight, Annotation-free Physical Unit Inconsistency Detection Tool},<br/>
+ booktitle = {Proceedings of the 26th ACM SIGSOFT International Symposium on Software Testing and Analysis},<br/>
+ series = {ISSTA 2017},<br/>
+ year = {2017},<br/>
+ isbn = {978-1-4503-5076-1},<br/>
+ location = {Santa Barbara, CA, USA},<br/>
+ pages = {352--355},<br/>
+ numpages = {4},<br/>
+ url = {http://doi.acm.org/10.1145/3092703.3098219},<br/>
+ doi = {10.1145/3092703.3098219},<br/>
+ acmid = {3098219},<br/>
+ publisher = {ACM},<br/>
+ address = {New York, NY, USA},<br/>
+ keywords = {dimensional analysis, physical units, program analysis, robotic systems, static analysis, type checking, unit consistency}
+} 
+
+</code>
+</div>
+</ul>
+
+<span class='year'>2016</span>
+<ul>
+<li>
+<span class='title'><a href="http://www.mdpi.com/2073-4441/7/11/6467">Obtaining the Thermal Structure of Lakes from the Air.</a> </span><span class='cite-button'  onclick="toggle_citation_visibility_('2016_obtaining')">cite</span><br/>
+<span class='authors'>Michaella Chung, Carrick Detweiler, Michael Hamilton, Jim Higgins, <span class='name-callout'>John-Paul Ore</span>, and Sally Thompson</span><br/>
+<span class='venue'>Water</span>
+
+<div class='tex-cite' id='2016_obtaining'>
+<code>
+@Article{w7116467,<br>
+AUTHOR = {Chung, Michaella and Detweiler, Carrick and Hamilton, Michael and Higgins, James and Ore, John-Paul and Thompson, Sally},<br>
+TITLE = {Obtaining the Thermal Structure of Lakes from the Air},<br>
+JOURNAL = {Water},<br>
+VOLUME = {7},<br>
+YEAR = {2015},<br>
+NUMBER = {11},<br>
+PAGES = {6467},<br>
+URL = {http://www.mdpi.com/2073-4441/7/11/6467},<br>
+ISSN = {2073-4441},<br>
+DOI = {10.3390/w7116467}<br>
+}
+
+</code>
+</div>
+</ul>
+
+<span class='year'>2015</span>
+<ul>
+<li>
+<span class='title'><a href="http://onlinelibrary.wiley.com/doi/10.1002/rob.21591/abstract">Autonomous Aerial Water Sampling</a>.</span><span class='cite-button'  onclick="toggle_citation_visibility_('2015_autonomous')">cite</span><br/>
+<span class='authors'><span class='name-callout'>John-Paul Ore</span>, Sebastian Elbaum, Amy Burgin, and Carrick Detweiler.</span><br/>
+<span class='venue'>Journal of Field Robotics</span>
+
+<div class='tex-cite' id='2015_autonomous'>
+<code>
+@article{ore2015autonomous,
+  title={Autonomous aerial water sampling},<br/>
+  author={Ore, John-Paul and Elbaum, Sebastian and Burgin, Amy and Detweiler, Carrick},<br/>
+  journal={Journal of Field Robotics},<br/>
+  volume={32},<br/>
+  number={8},<br/>
+  pages={1095--1113},<br/>
+  year={2015},<br/>
+  publisher={Wiley Online Library}<br/>
+}
+</code>
+</div>
+
+<li>
+<span class='title'><a href="http://www.tandfonline.com/doi/abs/10.1017/S1466046615000174">Bringing Unmanned Aerial Systems Closer to the Environment.</a></span><span class='cite-button'  onclick="toggle_citation_visibility_('2015_bringing')">cite</span><br/>
+<span class='authors'>Carrick Detweiler, <span class='name-callout'>John-Paul Ore</span>, David Anthony, Sebastian Elbaum, Amy Burgin, and Aaron Lorenz.</span><br/>
+
+<span class='venue'>Cambridge Journal of Environmental Practice<span> 
+<div class='tex-cite' id='2015_bringing'>
+<code>
+@article{detweiler2015environmental,<br/>
+  title={ENVIRONMENTAL REVIEWS AND CASE STUDIES: Bringing Unmanned Aerial Systems Closer to the Environment},<br/>
+  author={Detweiler, Carrick and Ore, John-Paul and Anthony, David and Elbaum, Sebastian and Burgin, Amy and Lorenz, Aaron},<br/>
+  journal={Environmental Practice},<br/>
+  volume={17},<br/>
+  number={3},<br/>
+  pages={188--200},<br/>
+  year={2015},<br/>
+  publisher={Taylor \& Francis}<br/>
+}
+</code>
+</div>
+
+<li>
+<span class='title'><a href="http://ieeexplore.ieee.org/abstract/document/7139678/">Surface Classification for Sensor Deployment from UAV Landings</a>.</span><span class='cite-button'  onclick="toggle_citation_visibility_('2015_surface')">cite</span><br/>
+<span class='authors'>David Anthony, Elizabeth Basha, Jared Ostdiek, <span class='name-callout'>John-Paul Ore</span>, and Carrick Detweiler.</span><br/>
+
+<span class='venue'>ICRA - Proceedings of IEEE International Conference on Robotics and Automation </span> Seattle, Washington
+<div class='tex-cite' id='2015_surface'>
+<code>
+@inproceedings{anthony2015surface,<br/>
+  title={Surface classification for sensor deployment from UAV landings},<br/>
+  author={Anthony, David and Basha, Elizabeth and Ostdiek, Jared and Ore, John-Paul and Detweiler, Carrick},<br/>
+  booktitle={Robotics and Automation (ICRA), 2015 IEEE International Conference on},<br/>
+  pages={3464--3470},<br/>
+  year={2015},<br/>
+  organization={IEEE}<br/>
+}
+</code>
+</div>
+
+<li>
+<span class='title'><a href="http://ieeexplore.ieee.org/abstract/document/7139940">On Air-to-Water Radio Communication between UAVs and Water Sensor Networks</a>.</span><span class='cite-button'  onclick="toggle_citation_visibility_('2015_air')">cite</span><br/>
+<span class='authors'>Jacob Palmer, Nicholas Yuen, <span class='name-callout'>John-Paul Ore</span>, Carrick Detweiler, and Elizabeth Basha.</span><br/>
+
+<span class='venue'>ICRA - Proceedings of IEEE International Conference on Robotics and Automation </span>
+Seattle, Washington, 2015.
+<div class='tex-cite' id='2015_air'>
+<code>
+@inproceedings{palmer2015air,<br/>
+  title={On air-to-water radio communication between UAVs and water sensor networks},<br/>
+  author={Palmer, Jacob and Yuen, Nicholas and Ore, John-Paul and Detweiler, Carrick and Basha, Elizabeth},<br/>
+  booktitle={Robotics and Automation (ICRA), 2015 IEEE International Conference on},<br/>
+  pages={5311--5317},<br/>
+  year={2015},<br/>
+  organization={IEEE}<br/>
+}
+</code>
+</div>
+</ul>
+
+<span class="year">2014</span>
+<ul>
+<li>
+<span class='title'><a href="http://dl.acm.org/citation.cfm?id=2668358">Controlled Sensor Network Installation with Unmanned Aerial Vehicles</a>.</span><span class='cite-button'  onclick="toggle_citation_visibility_('2014_controlled')">cite</span><br/>
+<span class='authors'>David Anthony, <span class='name-callout'>John-Paul Ore</span>, Elizabeth Basha, and Carrick Detweiler.</span><br/>
+
+<span class='venue'>ACM Conference on Embedded Networked Sensor Systems (SenSys) </span>,
+Memphis, TN.
+
+<div class='tex-cite' id='2014_controlled'>
+<code>
+@inproceedings{anthony2014controlled,<br/>
+  title={Controlled sensor network installation with unmanned aerial vehicles},<br/>
+  author={Anthony, David and Ore, John-Paul and Detweiler, Carrick and Basha, Elizabeth},<br/>
+  booktitle={Proceedings of the 12th ACM Conference on Embedded Network Sensor Systems},<br/>
+  pages={348--349},<br/>
+  year={2014},<br/>
+  organization={ACM}<br/>
+}
+</code>
+</div>
+</ul>
+
+<span class="year">2013</span>
+<ul>
+<li>
+<span class='title'><a href="http://onlinelibrary.wiley.com/doi/10.1002/rob.21591/abstract">Autonomous Aerial Water Sampling</a> (link to journal version).</span><br/>
+<span class='authors'><span class='name-callout'>John-Paul Ore</span>, Sebastian Elbaum, Amy Burgin, Baoliang Zhao, and Carrick Detweiler.</span><br/>
+
+<span class='venue'>FSR'13 -Field and Service Robotics. Brisbane, Australia</span>
+</li>
+</ul>
+
+<br/>
+<div class="sectionTitle">MISCELLANEOUS PUBLICATIONS</div>
+
+<ul>
+
+<li>
+
+<span class='title'><a href="http://adsabs.harvard.edu/abs/2015AGUFMIN33C1811T">An airborne robotic platform for mapping thermal structure in surface water bodies.</a> </span><span class='cite-button'  onclick="toggle_citation_visibility_('2015_airborne')">cite</span><br/>
+<span class='authors'>Sally Thompson, Michelle Chung, Carrick Detweiler, and <span class='name-callout'>John-Paul Ore</span>. </span><br/>
+<span class='venue'>In AGU Fall Meeting Abstracts. 2015.</span>
+
+<div class='tex-cite' id='2015_airborne'>
+<code>
+@inproceedings{thompson2015airborne,<br/>
+  title={An airborne robotic platform for mapping thermal structure in surface water bodies},<br/>
+  author={Thompson, SE and Chung, M and Detweiler, C and Ore, JP},<br/>
+  booktitle={AGU Fall Meeting Abstracts},<br/>
+  year={2015}<br/>
+}
+</code>
+</div>
+
+<li>
+<span class='title'><a href="./pdf/2015-NRI-CoAerial-Poster-Detweiler.pdf">Co-Aerial Ecologist</a> </span><br/>
+Poster at <a href="http://nri2015.ri.cmu.edu/">National Robotics Initiative - Primary Investigators Meeting</a>, Washington DC, 2015.
+
+
+<li>
+<span class='title'><a href="pdf/Towards_Monitoring_Saline_Wetlands_with_Micro_UAVs.pdf">Towards Monitoring Saline Wetlands with Micro UAVs</a>.</span><span class='cite-button'  onclick="toggle_citation_visibility_('2014_towards')">cite</span><br/>
+<span class='authors'><span class='name-callout'>Ore John-Paul</span>, Amy Burgin, Valerie Schoepfer, and Carrick Detweiler.</span><br/>
+<span class='venue'>Robot Science and Systems Workshop on Robotic Monitoring</span>
+Berkeley, California, 2014.
+<div class='tex-cite' id='2014_towards'>
+<code>
+@inproceedings{ore2014towards,<br/>
+  title={Towards monitoring saline wetlands with micro uavs},<br/>
+  author={Ore, JPWC and Burgin, Amy and Schoepfer, Valerie and Detweiler, Carrick},<br/>
+  booktitle={Robot Science and Systems Workshop on Robotic Monitoring, Berkeley, California},<br/>
+  year={2014}<br/>
+}
+
+</code>
+</div>
+
+<li>
+<span class='title'><u>Sensor Installation via UAVs for Environmental Monitoring</u>.</span><br/>
+<span class='authors'>David Anthony, <span class='name-callout'>John-Paul Ore</span>, and Carrick Detweiler.</span><br/>
+
+<span class='venue'>Robot Science and Systems Workshop on Robotic Monitoring</span>, 
+Berkeley, California, 2014.
+
+<li>
+<span class='title'><u>Using Unmanned Aerial Vehicles (UAVs) to Map Sources of Groundwater in a Saline Wetland</u>. </span><br/>
+<span class='authors'>Elizabeth R. Waring, Valerie A. Schoepfer, Amy Burgin, <span class='name-callout'>John-Paul Ore</span>, Carrick Detweiler, and Sebastian Elbaum. </span><br/>
+
+Poster presentation at the Joint Aquatic Sciences Meeting, Portland, OR 18-23 June 2014.   
+
+<li>
+<span class='title'><u>Towards Autonomous Aerial Water Sampling</u>.</span><br/>
+<span class='authors'><span class='name-callout'>John-Paul Ore</span>, Sebastian Elbaum, Baoliang Zhao, and Carrick Detweiler.</span><br/>
+
+<span class='venue'>Robot Science and Systems Workshop on Robotics for Environmental Monitoring</span>
+Berlin, Germany, 2013.
+</ul>
+
+<div class="sectionTitle">TEACHING AND MENTORING</div>
+<li>Research Mentor for undergraduate Becca Horzewski 2016--17
+<li>Research Mentor for undergraduate Lambros Karkazis 2018 
+<li>Graduate Teaching Assistant: Software Engineering II : SOFT-260, FALL 2018   ( 4.7 / 5, student evaluations)
+<br/>
+<br/>
+
+<img style="width:40%" src="./img/JPO_leading_a_lab.jpg"/>
+<br/>
+
+FEEDBACK FROM STUDENTS:
+<li>"Excellent understanding of the material, very good at explaining topics in a way that gives a deeper than surface-level understanding."
+<li>"[John-Paul] is very kind and engaging and knowledgeable on software topics."
+<li>"Effective Communication Skills paired with Comprehensive Knowledge of the material."
+<li>"Knowledgable, friendly, great attitude, has an enthusiasm for what he does."
+<li>"[John-Paul] displays amazing patience and kindness when explaining new concepts!"
+
+
+<br/>
+<div class="sectionTitle">AWARDS AND FUNDING</div>
+<li>ACM SIGSOFT Travel Award ($300)</li>
+<li><span style="color:yellow">ISSTA 2017 Best Tool Demonstration:</span> <a href="https://github.com/unl-nimbus-lab/phriky-units">Phriky Units (github)</a>
+<li>Helped author <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1718040&HistoricalAwards=false">NSF CCF-1718040</a>  ($484,694.00) 
+<li><a href="https://www.unl.edu/gradstudies/prospective/money/fellowships">Othmer Fellowship</a> 2014-2018  ($8K / year)
+<li>UNL CSE Outstanding Master's Thesis Award 2015
+<li>RSS 2013 Travel Grant ($500)
+
+
+
+
+<br/>
+<div class="sectionTitle">PATENTS</div>
+<li><a href="https://patents.google.com/patent/US9606028">Aerial Water Sampler</a>  #US9606028B2 2017
+<br/>
+<br/>
+<img style="width:20%" src="./img/UAV_Water_sampling.jpg"/>
+
+<div class="sectionTitle">TOOLS</div>
+<li> <a href="https://unl-nimbus-lab.github.io/phys/">Phys</a>  (in collaboration with Purdue's  Xiangyu Zhang and Sayali Kate)
+<li> <a href="https://github.com/unl-nimbus-lab/phriky-units">Phriky</a>  ISSTA 2017 Best Tool Demonstration Award
+<li> <a href="https://github.com/jpwco/uav-pendulum-simulation">Quadrotor UAV Pendulum Simulator (Simulink) </a>
+<br/>
+<br/>
+<br/>
+
+<div class="sectionTitle">TALKS</div>
+<li>Detecting Bugs in Robotic Systems : <a href="https://conf.researchr.org/track/issta-2017/issta-2017-tecps#program">ISSTA 2017 Workshop on Testing Embedded and Cyber-Physical Systems</a>
+<li><a href="https://roscon.ros.org/2017/">ROSCON'17</a>: Physical Unit Inconsistency Detection Tool for ROS<a href="https://conf.researchr.org/track/issta-2017/issta-2017-tecps#program">(<a href="https://roscon.ros.org/2017/presentations/ROSCon%202017%20Lightning%20101.pdf">slides</a>)(<a href="https://vimeo.com/236129109">video</a>, 3-minutes)</a>
+<li>Bright Lights Robotics Camp (Summer 2016, 2017)
+<li>Flying Robots. Seward Chapter of <a href="http://www.peointernational.org/">PEO</a> (June 2015).
+<li><a href="pdf/SEPARATION_LOGIC_OVERVIEW.pdf">Separation Logic (Formal Verification Technique)</a>
+<br>
+<br>
+<img src="./img/JPO_ASE_b_and_w_smaller.jpg" style="width:45%"/>
+
+<br/>
+<div class="sectionTitle">SERVICE</div>
+<li>Program Committee for Workshop on Robotic Software Engineering (RoSE, part of ICSE 2019)
+<li><i>Reviewer:</i> IEEE Robotics and Automation Letters 2018
+<li><i>Reviewer:</i> MEMCODE 2018
+<li><i>Reviewer:</i> Software Testing Verification and Reliability 2018
+<li><i>Reviewer:</i> Journal of Field Robotics 2015, 2017, 2018
+<li><i>Reviewer:</i> International Conference on Robotics and Automation (ICRA) 2014,2015,2017
+<li><i>Reviewer:</i> International Journal of Mining Reclamation and Environment 2018
+<li><i>Reviewer:</i> Limnology and Oceanography: Methods, 2017
+<li>Faculty Search Committee Student Representative - UNL CSE (2016)
+<li><a href="http://www.klkntv.com/story/29533917/drones-bright-lights-summer-camp">Bright Lights Robotics Camp Counsellor</a> (Summer 2015)
+<br/>
+
+
+
+
+<div class="sectionTitle">MEMBERSHIPS</div>
+<li>ACM-W, ACM, ACM-SIGSOFT, IEEE
+<br/>
+
+<div class="sectionTitle">CERTIFICATIONS</div>
+<li>Certified Remote UAS Drone Pilot under <a href="https://www.faa.gov/uas/getting_started/part_107/">FAA Part 107</a>.</li>
+<br/>
+
+
+
+<img src="./img/in_a_frozen_stream.png" style="width:40%"/>
+
+<div class="sectionTitle">VIDEOS</div>
+<br/>
+
+<li><a href="https://vimeo.com/236129109">2 Minute Lightning Talk at ROSCon 2017 Vancouver Day 1</a> from <a href="https://vimeo.com/osrfoundation">OSRF</a> on <a href="https://vimeo.com">Vimeo</a>.
+<br>
+<iframe src="https://player.vimeo.com/video/236129109" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<li> Overview of code analysis tool 'Phriky.'
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cc-Bubopml4" frameborder="0" allowfullscreen></iframe>
+<li>Demonstration of autonomous aerial water sampling system at <a href="http://blueoakranch.ucnrs.org/">Blue Oak Ranch Reserve</a>, near San Jose, CA, USA.    UAV uses GPS to navigate over the water body, then uses ultrasonic sensors and conductivity sensors to detect the water's surface.  The pump has to be submerged to prime before turning it on.  Can collect 3 separate water samples and purge the system between sampling locations by shooting water overboard.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fkYasqPdRmM" frameborder="0" allowfullscreen></iframe>
+<li>Pumping water through a 67-micron screen to filter for Zebra Mussel 'Velligers' (baby Zebra Mussels).  Initial results indicate this method is effective.
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gL-MahPaeCo" frameborder="0" allowfullscreen></iframe>
+<li>Water sampling UAV crashes into water on a cold morning.  A single motor reported it was on and spinning even though it stuttered and momentarily provided no thrust.  Lessons learned:  1) Launch away from shore; 2) freshwater crashes don't destroy electronics (because freshwater is not a good conductor, unlike saltwater). 
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rd04BMkHKcQ" frameborder="0" allowfullscreen></iframe>
+<li>3-D Water thermal structure interpolated from temperature readings taken from a thermometer suspended from a UAV.  Video reveals internal thermal structure of approximately 6x6 meters of a lake at UC Berkeley's <a href="http://blueoakranch.ucnrs.org/">Blue Oak Ranch Reserve</a>.
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/29FxHyKi9CI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<li>Laser scans from a SICK-TIM571 with Vicon markers to localize readings.  Scans show the perimeter of the VICON cage at the NIMBUS Lab.
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6FyCFtHJHis" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<li>Simulink model of UAV with cable-suspended payload demonstrating pathological behavior when cable imparts a small spring force.  Cable is modeled as a series of links.  Model available at: <a href="https://github.com/jpwco/uav-pendulum-simulation">https://github.com/jpwco/uav-pendulum-simulation</a>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6bMajG14LZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<li>Simulink model of UAV translating between two waypoints including a change in attitude (rotation).  Used to validate model with behavior of real quadcoptors.
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pKZ20sivglc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+<li>Simulink model of UAV with a cable-suspended payload showing an initial start of full-extended 90 degrees.
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ly7RLro2pnU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<li>Early autonomous water sampling prototype in Vicon motion-capture room.
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SFpUufBD9YM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<li> UAV follows iPad. Demonstration of webpage sharing GPS information relayed to a UAV's position guidance (2012).
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Rov-4XNI4-E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+
+<li>Schematic for embedded system for UAV-base water sampling.  Power distribution on the middle right, capacitors at bottom middle to smooth the power to servo and water pump.
+<img src="img/h2o_board_eagle.png" style="width:560px;height:403;float:left; padding-right:10px;padding-top:10px;"/>
+<br>
+<li style="clear:both">Embedded system for UAV-base water sampling.  ATMega328p used to control submerged water pump, read from ultrasonic rangers and conductivity sensors.  Communicates with a command and control system (laptop) by XBee Radio (2.4GHz).
+<img src="img/h2o_board_populated.png" style="width:560px;height:403;float:left; padding-right:10px;padding-top:10px;"/>
+<br/>
+<br/>
+
+<div style="clear:both">&nbsp;</div>
+<div class="sectionTitle">PROJECTS</div>
+<br/>
+2014 Class Project: Virtual Reality (Unity) 3-D rendering of Text Clouds for source code visualization with the Oculus Rift DK1 (2014).  Class project experiment with using virtual reality for program comprehension.  Word color is the identifier type, font size is based on word frequency (TD-IDF).
+<br/>
+<img src="img/view_inside_3_d_Code.png" style="width:75%;padding-top:10px;padding-bottom:10px;"/>
+<br/>
+<br/>
+
+
+2015 Project experimenting with spatial logics to predict spatio-temporal regions where two UAVs might collide. (Matlab)
+<br/>
+<img src="./img/predicting_collisions.png" style="width:75%"/>
+<br/>
+<br/>
+
+<span style="padding-top:20px; clear:both">&nbsp;</span>
+<div class="sectionTitle">PERSONAL</div>
+<p style="padding-top:20px; clear:both">Hiking, travelling, cycling, cuisine, <a target="_blank" href="./pics">photography</a>, and birding.</p>
+</span>
+
+
+</body>
 </html>
+
+
+
+
 

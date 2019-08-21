@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>John-Paul Ore</title>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script>
+
+<!--THERE MIGHT BE AT LEAST 108 ANTI-PATTERNS IN THIS SOURCE.  CAN YOU FIND THEM ALL?-->
+
+$( document ).ready(function() {
+
+  // INITIAL ROLL OF THE DICE TO SEE WHICH ADVISOR IS LISTED FIRST
+  whoIsFirst = (Math.random() > 0.5);
+
+  function changeAdvisorOrder() {
+
+    advisor_html = '';
+    <!--advisor_html = '<h3> Co-Advisors:<br\> ';-->
+    // LIST OF ADVISORS
+    a = ['<a href="http://cse.unl.edu/~carrick">Carrick Detweiler</a>','<a href="http://cse.unl.edu/~elbaum">Sebastian Elbaum</a>'];
+    // HACKY BUT TERSE WAY TO FLIP ORDER 
+    advisor_html += a[whoIsFirst & 1] + ' and ' + a[ (! whoIsFirst ) & 1];
+    advisor_html += '';
+
+    // WRITE HTML TO OBJECT
+    $("#advisors_inline").hide().html(advisor_html).fadeIn(2000);
+    // FLIP VALUE
+    whoIsFirst = ! whoIsFirst;
+  }
+
+  changeAdvisorOrder();
+
+  var my_loop_timer = setInterval(changeAdvisorOrder, 16180);
+
+  $("div.tex-cite").css("display", "none");
+
+});
+
+function toggle_citation_visibility_(cite_elem) {
+    var x = document.getElementById(cite_elem);
+    if (x.style.display == "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+
+</script>
+
+
+<style>
+body {
+background-color:#080808;
+color:#cdc;
+font-family: georgia;
+
+font-size:14px;
+}
+#main {
+margin: auto;
+width:638px;
+height:100%;
+padding:22px;
+}
+
+#advisors{
+padding-top:20px;
+float:right;
+clear:right;
+font-size:14px;
+}
+
+#advisors_inline{
+}
+
+#headshot{
+float:left; 
+padding-right:10px
+height: 180px;
+width: 111px;
+clear:left;
+}
+
+#selfie{
+float:right; 
+padding-left:20px;
+padding-top:45px;
+width: 220px;
+clear:right;
+}
+
+
+a:link {color:#BEDDEF;}      /* unvisited link   O8F*/
+a:visited {color:#9CBCED;}  /* visited link */
+a:hover {color:#4Af;}  /* mouse over link */
+a:active {color:#FFF}  /* selected link */
+
+.banner {
+margin:auto;
+width:100%;
+}
+img#bg { position:fixed; 
+top:140px; 
+left:0; 
+width:100%; 
+height:100%;
+z-index:-101;
+opacity:.9;
+filter:alpha(opacity=.9);
+}
+
+li{
+  margin: 10px 0;
+}
+
+.bannerTitle{
+font-size:24px; 
+letter-spacing:1px; 
+font-variant: 
+small-caps; 
+color:#DD0;
+float:left;
+padding-bottom:8px;
+}
+
+.sectionTitle{
+padding-top:40px;
+letter-spacing:2px; 
+font-variant: small-caps; 
+color:#fff;
+font-size:18px;
+}
+
+.tex-cite{
+display:none;
+background-color:#333;
+ word-wrap:normal;
+ font-size:9px;
+padding:5px;
+}
+.cite-button{
+display:none;
+ font-size:9px;
+color: #cc3399; 
+text-decoration: underline;
+padding-left:5px;
+}
+
+.name-callout{
+font-weight:bold;
+}
+.title{
+font-size:14px;
+font-style:italic;
+}
+.authors{
+font-size:13px;
+color:#999;
+}
+.venue{
+font-size:17px;
+<!--font-style:italic;-->
+color:#00CCff;
+<!--color:#0039e6;-->
+float:right;
+}
+<!--a.venue:visited, a.venue:link{-->
+<!--color:#00CCFF;-->
+<!--}-->
+.year{
+color:#FFFFCC;
+padding-top:10px;
+letter-spacing: 2px;
+}
+
+.text{
+float:left;
+width: 330px;
+font-size:15px;
+line-height:1.5;
+}
+.text_title{
+font-variant: small-caps; 
+float:left;
+font-size:16px;
+color:#777;
+width:200px;
+padding-bottom:10px;
+}
+
+.highlight-text
+{
+color:yellow;
+font-weight:bold;
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+<img src="img/bg.jpg" id="bg">
+<img class="banner" src="img/NE_skies.jpg"/>
+<div id="main">
+
+<div style="text-align:right; color:yellow; font-size:20px; float:right; "><!--<img src="img/e.png"/> -->
+<br/>
+</div>
+
+<br/>
+<span style="color:red; font-size:18px; float:left;">
+Contact me at jwore at ncsu dot edu.
+<br/>
+<br/>
+I am actively recruiting motivated PhD students to join my lab starting in Fall 2019. </span>
+
+</body>
+</html>
+
+
+
+
+
